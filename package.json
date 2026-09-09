@@ -1,6 +1,6 @@
 {
   "name": "jekardah-writer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Workflow menulis dan me-review konten dengan struktur cerita, hook kuat, bahasa natural, dan tutur Jabodetabek — installable lewat npx.",
   "bin": {
     "jekardah-writer": "bin/cli.js"
