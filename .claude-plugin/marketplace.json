@@ -1,0 +1,16 @@
+{
+  "name": "jekardah-writer",
+  "owner": {
+    "name": "Konten Studio"
+  },
+  "plugins": [
+    {
+      "name": "jekardah-writer",
+      "source": {
+        "source": "github",
+        "repo": "konten-studio/jekardah-writer"
+      },
+      "description": "Workflow menulis dan me-review konten dengan struktur cerita, hook kuat, bahasa natural, dan tutur Jabodetabek."
+    }
+  ]
+}

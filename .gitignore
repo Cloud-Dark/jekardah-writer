@@ -2,3 +2,8 @@
 *.swp
 *.tmp
 .jekardah-writer-install.tsv
+.jekardah-writer-install.json
+node_modules/
+skills-lock.json
+/.claude/
+/.agents/

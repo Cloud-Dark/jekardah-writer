@@ -1,0 +1,38 @@
+{
+  "name": "jekardah-writer",
+  "version": "0.1.0",
+  "description": "Workflow menulis dan me-review konten dengan struktur cerita, hook kuat, bahasa natural, dan tutur Jabodetabek — installable lewat npx.",
+  "bin": {
+    "jekardah-writer": "bin/cli.js"
+  },
+  "files": [
+    "bin/",
+    "skills/",
+    "README.md",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "writing",
+    "storytelling",
+    "indonesian",
+    "jabodetabek",
+    "hooks",
+    "anti-ai-slop",
+    "claude-skill",
+    "ai-skill"
+  ],
+  "author": "Konten Studio",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/konten-studio/jekardah-writer.git"
+  },
+  "homepage": "https://github.com/konten-studio/jekardah-writer#readme",
+  "bugs": {
+    "url": "https://github.com/konten-studio/jekardah-writer/issues"
+  }
+}
