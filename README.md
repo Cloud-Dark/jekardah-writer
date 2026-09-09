@@ -44,8 +44,11 @@ baru adjust voice Jabodetabek secukupnya.
 | `review-rewrite-content` | Pemimpin redaksi: pilih mode, lock fakta, atur handoff, jalankan QA |
 | `storytelling-content` | Susun tulang cerita, tension, pacing, dan payoff tanpa ngarang kejadian |
 | `hook-gokil` | Cari hook yang bikin berhenti scroll tanpa ngarang payoff |
+| `headline-variants` | Generate dan skor opsi judul/subject line, terpisah dari hook body |
 | `no-ai-slop` | Buang pembukaan kaleng, hiperbola, dan ritme yang terlalu mesin |
 | `tutur-jabodetabek-urban` | Kasih register lokal tanpa cosplay slang atau stereotip wilayah |
+| `platform-format` | Rapikan draft final biar pas sama konvensi IG/X/LinkedIn/TikTok/newsletter |
+| `content-audit` | Audit skor draft (hook, struktur, voice, slop, risiko fakta, CTA) — read-only, gak ngedit |
 
 ## Before → After
 
@@ -83,13 +86,17 @@ nama, angka, atribusi, maksud CTA, link, plus batas kepastian sumber.
    ├──▶ STORYTELLING ─────▶ spine + tension + pacing
    ├──▶ HOOK GOKIL ──────▶ angle + payoff
    ├──▶ NO AI SLOP ────▶ konkret + ritmis + bersih
-   └──▶ TUTUR URBAN ───▶ register Jabodetabek
+   ├──▶ TUTUR URBAN ───▶ register Jabodetabek
+   ├──▶ HEADLINE VARIANTS ──▶ opsi judul + accuracy check
+   └──▶ PLATFORM FORMAT ──▶ segmentasi + layout channel
    │
    ▼
- [FINAL QA] ── facts · format · payoff · tone
+ [FINAL QA] ── facts · format · payoff · tone · headline · platform
    │
    ▼
  KONTEN YANG KEDENGERAN KAYAK LO
+
+ [FACT LOCK] ──▶ CONTENT AUDIT ──▶ skor read-only, gak masuk pipeline mutasi
 ```
 
 ## Mode: gak semua draft perlu dibongkar total
@@ -98,10 +105,14 @@ nama, angka, atribusi, maksud CTA, link, plus batas kepastian sumber.
 |---|---|---|
 | `auto` | Lo mau agent pilih scope paling kecil yang cukup | Hanya layer yang benar-benar diminta |
 | `review-only` | Lo butuh diagnosis tanpa menyentuh draft | Tidak ada |
+| `audit` | Lo mau skor terstruktur (bukan cuma diagnosis prosa) | Tidak ada |
 | `story-structure-only` | Bahannya ada, alur ceritanya masih datar atau acak | Struktur naratif saja |
 | `hook-only` | Body udah kuat, pembukanya belum narik | Hook saja |
+| `headline-only` | Body udah oke, judul/subject line-nya lemah | Headline saja |
 | `anti-slop-only` | Isinya benar, tapi bahasanya generik | Prosa, bukan angle atau fakta |
 | `voice-only` | Struktur aman, voice-nya belum dapet | Diksi, pronoun, dan rhythm |
+| `platform-format-only` | Draft udah final, tinggal disesuaikan ke satu channel | Segmentasi, panjang, layout |
+| `compare` | Butuh 2-4 varian draft buat dibandingin (hook/voice/platform) | Satu dimensi per varian, fakta tetap sama |
 | `end-to-end` | Draft atau pengalaman perlu masuk meja operasi penuh | Semua layer relevan dalam pagar fact + story lock |
 
 Prompt paling simpel:
@@ -145,7 +156,7 @@ dia expect, jadi bisa langsung dipakai tanpa setup tambahan:
 
 ```bash
 npx skills add konten-studio/jekardah-writer --list
-npx skills add konten-studio/jekardah-writer --skill review-rewrite-content --skill storytelling-content --skill hook-gokil --skill no-ai-slop --skill tutur-jabodetabek-urban
+npx skills add konten-studio/jekardah-writer --skill review-rewrite-content --skill storytelling-content --skill hook-gokil --skill headline-variants --skill no-ai-slop --skill tutur-jabodetabek-urban --skill platform-format --skill content-audit
 npx skills add konten-studio/jekardah-writer -a claude-code -a opencode
 ```
 

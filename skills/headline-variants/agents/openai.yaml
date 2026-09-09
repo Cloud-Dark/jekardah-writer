@@ -1,0 +1,4 @@
+interface:
+  display_name: "Headline Variants"
+  short_description: "Generate and score accurate, clickable title options"
+  default_prompt: "Use $headline-variants to generate and score title or headline options that stay accurate to the body."

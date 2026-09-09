@@ -1,0 +1,4 @@
+interface:
+  display_name: "Content Audit"
+  short_description: "Score a draft's hook, structure, voice, slop, and factual risk"
+  default_prompt: "Use $content-audit to produce a scored, read-only audit report for this draft without rewriting it."
