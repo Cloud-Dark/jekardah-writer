@@ -12,7 +12,7 @@ check_agent() {
   home="$TMP/$agent-home"
   mkdir -p "$home"
   HOME="$home" "$ROOT/scripts/install.sh" --agent "$agent" --scope user --copy >/dev/null
-  for skill in review-rewrite-content storytelling-content hook-gokil no-ai-slop tutur-jabodetabek-urban; do
+  for skill in review-rewrite-content storytelling-content hook-gokil headline-variants no-ai-slop tutur-jabodetabek-urban platform-format content-audit; do
     [ -f "$home/$expected/$skill/SKILL.md" ] || fail "$agent did not install $skill"
   done
   HOME="$home" "$ROOT/scripts/verify-install.sh" --agent "$agent" --scope user >/dev/null

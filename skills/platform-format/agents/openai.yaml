@@ -1,0 +1,4 @@
+interface:
+  display_name: "Platform Format"
+  short_description: "Shape a finished draft for one channel's conventions"
+  default_prompt: "Use $platform-format to reshape this draft for the target platform without changing facts, hook, or voice."
