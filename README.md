@@ -16,6 +16,9 @@
 
 **Drop the draft. Keluarin tulisan yang punya hook, punya suara, dan tetap fact-locked.**
 
+[![npm version](https://img.shields.io/npm/v/jekardah-writer.svg)](https://www.npmjs.com/package/jekardah-writer)
+[![npm downloads](https://img.shields.io/npm/dm/jekardah-writer.svg)](https://www.npmjs.com/package/jekardah-writer)
+
 </div>
 
 ---
@@ -131,17 +134,57 @@ bukan claim kalau setiap versi aplikasi vendor udah dites end-to-end.
 
 ## Instalasi
 
-Clone repo dulu biar lo bisa inspect installer-nya. Kita sengaja gak
-nyaranin pola `curl | bash`.
+Ada empat jalur install, pilih yang paling cocok sama setup lo.
+
+### 0. `npx skills` (registry komunitas, support paling banyak agent)
+
+Pakai [Vercel Labs `skills`](https://github.com/vercel-labs/skills) — CLI package
+manager buat agent skill yang support Claude Code, Codex, Cursor, OpenCode, dan
+70+ agent lain. Repo ini udah ngikutin konvensi `skills/<name>/SKILL.md` yang
+dia expect, jadi bisa langsung dipakai tanpa setup tambahan:
+
+```bash
+npx skills add konten-studio/jekardah-writer --list
+npx skills add konten-studio/jekardah-writer --skill review-rewrite-content --skill storytelling-content --skill hook-gokil --skill no-ai-slop --skill tutur-jabodetabek-urban
+npx skills add konten-studio/jekardah-writer -a claude-code -a opencode
+```
+
+### 1. `npx jekardah-writer` (installer sendiri, paling cepat buat 6 agent utama)
+
+```bash
+npx jekardah-writer install --agent claude --scope user
+npx jekardah-writer install --agent codex --scope user
+npx jekardah-writer install --agent cursor --scope user
+npx jekardah-writer install --agent opencode --scope user
+npx jekardah-writer install --agent copilot --scope user
+npx jekardah-writer install --agent gemini --scope user
+```
+
+Sama kayak installer shell: ada `--scope project --prefix <path>`, `--copy` /
+`--symlink`, `--dry-run`, plus `verify` dan `uninstall`:
+
+```bash
+npx jekardah-writer install --agent claude --scope project --prefix .
+npx jekardah-writer verify --agent claude --scope project --prefix .
+npx jekardah-writer uninstall --agent claude --scope project --prefix .
+```
+
+### 2. Claude Code plugin (native, lewat `/plugin`)
+
+```text
+/plugin marketplace add konten-studio/jekardah-writer
+/plugin install jekardah-writer@jekardah-writer
+```
+
+Ini pakai `.claude-plugin/marketplace.json` + `.claude-plugin/plugin.json` yang
+udah include di repo. Codex CLI punya jalur native serupa lewat
+`.codex-plugin/plugin.json`.
+
+### 3. Clone + shell installer (kalau mau inspect dulu)
 
 ```bash
 git clone https://github.com/konten-studio/jekardah-writer.git
 cd jekardah-writer
-```
-
-Install buat satu agent. Default-nya symlink di user scope:
-
-```bash
 ./scripts/install.sh --agent claude --scope user
 ./scripts/install.sh --agent codex --scope user
 ./scripts/install.sh --agent cursor --scope user
@@ -161,12 +204,6 @@ scope kalau instalasinya cuma boleh apply ke satu repo:
 
 Installer bakal refuse folder skill yang bukan dia manage. Uninstaller juga cuma
 hapus path yang tercatat di installation manifest Jekardah Writer.
-
-### Native plugin
-
-Repo ini juga include `.claude-plugin/plugin.json` dan
-`.codex-plugin/plugin.json`. Pakai native plugin/marketplace flow ketika repo
-udah terdaftar di sana; portable installer tetap available buat setup lokal yang eksplisit.
 
 ## Safety: tulisannya boleh liar, faktanya jangan ikut kabur
 
